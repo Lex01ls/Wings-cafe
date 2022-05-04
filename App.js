@@ -14,18 +14,23 @@ export default function App() {
 
     <View style={styles.container}>
 
-      <View style={styles.header}>
-        <TouchableOpacity>
-        <MaterialIcons name="arrow-back" size={24} color="black" />
-        </TouchableOpacity>
-        <Text style={styles.text}>Cart</Text>
-        <TouchableOpacity>
-        <AntDesign name="bars" size={24} color="black" />
-        </TouchableOpacity>
-      </View>
+      <ImageBackground source={require('./assets/food.jpg')} resizeMode="cover" style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity >
+              <MaterialIcons name="arrow-back" size={24} color="#f8f8ff" />
+          </TouchableOpacity>
+          <Text style={styles.text}>Cart</Text>
+          <TouchableOpacity>
+            <AntDesign name="bars" size={24} color="#f8f8ff" />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.slogan}>
+            <Text style={styles.text}>Foodies Welcome to Limkokwing Wings Cafe. What can we get you?</Text>
+        </View>
 
-
-    <View style={styles.body}>
+      </ImageBackground>
+      
+      <View style={styles.body}>
       <ScrollView>
       
           <Cart name="Fat Cakes" price={1}  totalPrice={totalPrice} setTotalPrice={setTotalPrice} image={require('./assets/Mangwinya-vetkoeks-fat-cakes.png')} />
@@ -40,7 +45,19 @@ export default function App() {
     </View>
 
     <View style={styles.footer}>
-          <Text style={styles.text}>The total is: M{totalPrice}</Text>
+          <Text style={styles.text}>Balance: M{totalPrice}</Text>
+    </View>
+    <View style={styles.navigationBar}>
+
+        <TouchableOpacity>
+        <AntDesign name="home" size={24} color="#f8f8ff" />
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <AntDesign name="shoppingcart" size={24} color="#e32636" />
+        </TouchableOpacity>
+        <TouchableOpacity>
+        <AntDesign name="profile" size={24} color="#f8f8ff" />
+        </TouchableOpacity>
     </View>
 
   </View>
@@ -52,43 +69,53 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#99badd',
-
+    backgroundColor: '#0f0f0f',
+ 
   },
  
   header: {
-  backgroundColor: '#f8f8ff',
-    marginBottom:10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: 5,
-    height:"5%"
-
+    margin:5
   },
+
   text:{
     fontSize:24,
     fontWeight: 'bold',
+    color:'#fff8dc',
+    textShadowColor: 'black', 
+    textShadowOffset: { width: -1, height: 0 },
+    textShadowRadius: 10,
     
+  },
+  slogan:{
+    alignSelf: 'center',
+    marginTop:85,
+    justifyContent: 'center',
+    padding:10
   },
 
   body:{
-  
-  alignItems: 'center',
-   justifyContent: 'center',
-   height:"87%"
-    
-    
+    alignItems: 'center',
+    justifyContent: 'center',
+    height:"50%",
+ 
   },
 
   footer:{
-    backgroundColor:"#dcdcdc",
+    backgroundColor:"#003153",
     width:"98%",
     alignItems: 'center',
     margin:5,
     padding:5,
-    borderWidth:1,
     borderRadius:10,
     height:"5%"
-  
+  },
+  navigationBar:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    margin:10,
+    padding:10,
+    height:"7%",
   },
 });
